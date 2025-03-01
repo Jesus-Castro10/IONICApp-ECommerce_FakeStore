@@ -1,0 +1,7 @@
+{
+  "name": "ECommerce_Parcial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
