@@ -1,0 +1,13 @@
+<ion-col>
+  <ion-card class="product-card">
+    <img [src]="product.image" class="product-image" />
+    <ion-card-content class="product-content">
+      <h2 class="product-title">{{ product.title }}</h2>
+      <p class="product-category">{{ product.category }}</p>
+      <p class="product-rating">{{ product.rating }} ★ (4 reviews)</p>
+      <h3 class="product-price">
+        ${{ product.price }}
+      </h3>
+    </ion-card-content>
+  </ion-card>
+</ion-col>

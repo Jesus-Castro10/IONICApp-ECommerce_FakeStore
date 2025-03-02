@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi tienda virtual</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="danger">3</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="product-detail">
+    <ion-row>
+      <ion-col>
+        <h1 class="product-title">{{ product.title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <img [src]="product.image" class="product-image" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="product-category">{{ product.category }}</p>
+      </ion-col>
+      <ion-col class="product-price">
+        <h2>${{ product.price }}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Description</h3>
+        <p class="product-description">{{ product.description }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p><strong>Bought:</strong> {{ product.bought }}+</p>
+      </ion-col>
+      <ion-col class="product-rating">
+        <p>{{ product.rating }} ★</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button expand="full" fill="solid">
+      Add to Cart
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

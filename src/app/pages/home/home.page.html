@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mi tienda virtual</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="success">3</ion-badge>
+        <!-- <ion-badge color="danger">3</ion-badge> -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <!-- <ion-row class="ion-justify-content-center"> -->
+      <ion-col size="auto">
+        <ion-button fill="outline" size="small" (click)="sortProducts('asc')">Asc<ion-icon
+            name="arrow-up-outline"></ion-icon></ion-button>
+        <ion-button fill="outline" size="small" (click)="sortProducts('desc')">Desc<ion-icon
+            name="arrow-down-outline"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-select placeholder="Select an Item" [(ngModel)]="selectedCategory" (ionChange)="filterProducts()">
+          <ion-select-option value="all">All</ion-select-option>
+          <ion-select-option value="men's clothing">Men's Clothing</ion-select-option>
+          <ion-select-option value="women's clothing">Women's Clothing</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      @for (product of products; track product;) {
+      <app-card-product [product]="product"></app-card-product>
+      }
+    </ion-row>
+  </ion-grid>
+</ion-content>
