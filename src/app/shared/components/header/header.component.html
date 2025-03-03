@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    @if (backRoute != undefined) {
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    }
+    <ion-title>{{title}}</ion-title>
+    @if(showCart) {
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="success">{{total}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>

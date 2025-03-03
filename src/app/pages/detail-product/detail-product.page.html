@@ -1,19 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Mi tienda virtual</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="cart-outline"></ion-icon>
-        <ion-badge color="danger">3</ion-badge>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header [backRoute]="'/home'" [title]="'Product Detail'" [showCart]="true"></app-header>
 
 <ion-content>
+  @if (product != null) {
   <ion-grid class="product-detail">
     <ion-row>
       <ion-col>
@@ -40,19 +28,17 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <p><strong>Bought:</strong> {{ product.bought }}+</p>
-      </ion-col>
       <ion-col class="product-rating">
-        <p>{{ product.rating }} ★</p>
+        <p>{{ product.rating.rate }} <ion-icon name="star"></ion-icon> ({{ product.rating.count }} reviews) </p>
       </ion-col>
     </ion-row>
   </ion-grid>
+  }
 </ion-content>
 
 <ion-footer>
   <ion-toolbar color="primary">
-    <ion-button expand="full" fill="solid">
+    <ion-button expand="full" fill="solid" (click)="addToCart(product)">
       Add to Cart
     </ion-button>
   </ion-toolbar>

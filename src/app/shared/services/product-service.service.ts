@@ -13,7 +13,7 @@ export class ProductService {
     return this.http.get(environment.baseUrl + environment.products)
   }
 
-  //   getProduct(id: any){
-  //     return this.http.get(environment.baseUrl + environment.product + id)
-  // }
+  getProduct(id: any) {
+    return this.http.get(environment.baseUrl + environment.products + id)
+  }
 }

@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetailProductPageRoutingModule } from './detail-product-routing.module';
+import { CartPageRoutingModule } from './cart-routing.module';
 
-import { DetailProductPage } from './detail-product.page';
+import { CartPage } from './cart.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    DetailProductPageRoutingModule
+    CartPageRoutingModule
   ],
-  declarations: [DetailProductPage]
+  declarations: [CartPage]
 })
-export class DetailProductPageModule { }
+export class CartPageModule { }

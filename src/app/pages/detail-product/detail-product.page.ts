@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/shared/interfaces/product';
+import { ProductCart } from 'src/app/shared/interfaces/product-cart';
+import { CartService } from 'src/app/shared/services/cart.service';
+import { ProductService } from 'src/app/shared/services/product-service.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -8,21 +13,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailProductPage implements OnInit {
 
-  product: any = {
-    id: 1,
-    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-    image: 'https://m.media-amazon.com/images/I/71weQvGyBFL._AC_SX569_.jpg',
-    category: "men's clothing",
-    price: 109.95,
-    description:
-      'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday.',
-    bought: 120,
-    rating: 3.9,
-  };
+  id: string | null = '';
+  product !: Product;
 
-  constructor() { }
+  constructor(private service: ProductService, private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.getProduct(this.id);
+  }
+
+  getProduct(id: any) {
+    this.service.getProduct(id).subscribe({
+      next: (rest: any) => {
+        this.product = rest;
+        console.log(rest);
+      },
+      error: (error: any) => { }
+    })
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.location.reload();
   }
 
 }
