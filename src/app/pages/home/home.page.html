@@ -14,8 +14,9 @@
       <ion-col size="auto">
         <ion-select placeholder="Select an Item" [(ngModel)]="selectedCategory" (ionChange)="filterProducts()">
           <ion-select-option value="all">All</ion-select-option>
-          <ion-select-option value="men's clothing">Men's Clothing</ion-select-option>
-          <ion-select-option value="women's clothing">Women's Clothing</ion-select-option>
+          @for(category of categories; track category;) {
+          <ion-select-option value="{{category}}">{{category}}</ion-select-option>
+          }
         </ion-select>
       </ion-col>
     </ion-row>

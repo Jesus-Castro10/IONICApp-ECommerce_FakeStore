@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductCart } from 'src/app/shared/interfaces/product-cart';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -12,7 +13,7 @@ export class CartPage implements OnInit {
 
   cartItems: ProductCart[] = [];
   total: number = 0;
-  constructor(private cartSevice: CartService) { }
+  constructor(private cartSevice: CartService, private router: Router) { }
 
   ngOnInit() {
     this.cartItems = this.cartSevice.getCartItems();
@@ -21,16 +22,24 @@ export class CartPage implements OnInit {
   }
 
   getTotalPrice() {
-    this.cartItems.forEach(product => {
-      this.total += product.price * product.quantity;
-    });
+    this.total = this.cartSevice.getTotalPrice();
   }
 
   increaseQuantity(id: any) {
-    this.cartSevice.increaseQuantity(id - 1);
+    this.cartItems = this.cartSevice.increaseQuantity(id);
+    this.getTotalPrice();
   }
 
   decreaseQuantity(id: any) {
-    this.cartSevice.decreaseQuantity(id - 1);
+    this.cartItems = this.cartSevice.decreaseQuantity(id);
+    this.getTotalPrice();
+  }
+
+  deleteToCart(id: any) {
+    this.cartItems = this.cartSevice.deleteToCart(id);
+    this.getTotalPrice();
+  }
+  goCheckout() {
+    this.router.navigate(["/checkout"]);
   }
 }

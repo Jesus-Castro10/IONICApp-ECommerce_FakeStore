@@ -16,4 +16,12 @@ export class ProductService {
   getProduct(id: any) {
     return this.http.get(environment.baseUrl + environment.products + id)
   }
+
+  getProductByCategory(category: any) {
+    return this.http.get(environment.baseUrl + environment.category + category)
+  }
+
+  getCategories() {
+    return this.http.get(environment.baseUrl + environment.categories)
+  }
 }

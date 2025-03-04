@@ -1,0 +1,17 @@
+<app-header [title]="'Payment Resume'"></app-header>
+
+<ion-content class="ion-padding no-scroll">
+  <app-personal-information></app-personal-information>
+
+  <h2>Payment information</h2>
+  <p>*4563</p>
+
+  <h3>Total</h3>
+  <p><strong>$ 59.28</strong></p>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" color="primary" class="payment-button" (click)="goToHome()">Go Home</ion-button>
+  </ion-toolbar>
+</ion-footer>

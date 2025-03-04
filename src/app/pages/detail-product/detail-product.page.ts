@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/product';
-import { ProductCart } from 'src/app/shared/interfaces/product-cart';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductService } from 'src/app/shared/services/product-service.service';
 
@@ -37,5 +36,4 @@ export class DetailProductPage implements OnInit {
     this.cartService.addToCart(product);
     window.location.reload();
   }
-
 }

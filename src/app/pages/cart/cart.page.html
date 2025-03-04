@@ -12,7 +12,7 @@
           <ion-button fill="clear" (click)="decreaseQuantity(item.id)" class="quantity-button">-</ion-button>
           <span class="quantity-text">{{ item.quantity }}</span>
           <ion-button fill="clear" (click)="increaseQuantity(item.id)" class="quantity-button">+</ion-button>
-          <ion-button fill="clear" color="danger" class="remove-button">🗑</ion-button>
+          <ion-button fill="clear" color="danger" class="remove-button" (click)="deleteToCart(item.id)">🗑</ion-button>
         </div>
       </ion-label>
       <h2>${{ item.price }}</h2>
@@ -27,5 +27,7 @@
       <span class="total-amount">${{total.toFixed(2)}}</span>
     </div>
   </ion-toolbar>
-  <ion-button expand="full" color="primary">Checkout</ion-button>
+  @if(total >= 1){
+  <ion-button expand="full" color="primary" (click)="goCheckout()">Checkout</ion-button>
+  }
 </ion-footer>

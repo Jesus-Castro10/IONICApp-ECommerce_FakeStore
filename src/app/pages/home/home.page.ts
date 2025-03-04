@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/shared/services/product-service.service'
 })
 export class HomePage implements OnInit {
   products: Product[] = [];
+  categories: string[] = [];
 
   filteredProducts = [...this.products];
   selectedCategory = 'all';
@@ -18,18 +19,26 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.getProducts();
+    this.getCategories();
   }
   sortProducts(order: string) {
-    //   this.filteredProducts.sort((a, b) =>
-    //     order === 'asc' ? a.price - b.price : b.price - a.price
-    //   );
+    this.products.sort((a, b) =>
+      order === 'asc' ? a.price - b.price : b.price - a.price
+    );
   }
 
   filterProducts() {
-    // this.filteredProducts =
-    //   this.selectedCategory === 'all'
-    //     ? [...this.products]
-    //     : this.products.filter(p => p.category === this.selectedCategory);
+    console.log(this.selectedCategory);
+    if (this.selectedCategory !== 'all') {
+      this.service.getProductByCategory(this.selectedCategory).subscribe({
+        next: (rest: any) => {
+          this.products = rest;
+        },
+        error: (error: any) => { }
+      })
+    } else {
+      this.getProducts();
+    }
   }
 
   getProducts() {
@@ -37,6 +46,16 @@ export class HomePage implements OnInit {
       next: (rest: any) => {
         this.products.push(...rest)
         console.log(this.products);
+      },
+      error: (error: any) => { }
+    })
+  }
+
+  getCategories() {
+    this.service.getCategories().subscribe({
+      next: (rest: any) => {
+        this.categories.push(...rest)
+        console.log(this.categories);
       },
       error: (error: any) => { }
     })

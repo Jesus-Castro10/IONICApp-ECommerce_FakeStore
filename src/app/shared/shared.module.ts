@@ -6,8 +6,9 @@ import { CardProductComponent } from './components/card-product/card-product.com
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product-service.service';
 import { HeaderComponent } from './components/header/header.component';
+import { PersonalInformationComponent } from './components/personal-information/personal-information.component';
 
-const COMPONENTS = [CardProductComponent, HeaderComponent];
+const COMPONENTS = [CardProductComponent, HeaderComponent, PersonalInformationComponent];
 const MODULES = [CommonModule, IonicModule, FormsModule, HttpClientModule];
 @NgModule({
   declarations: [...COMPONENTS],

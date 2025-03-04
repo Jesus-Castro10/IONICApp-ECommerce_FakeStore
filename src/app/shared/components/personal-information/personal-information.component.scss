@@ -1,0 +1,16 @@
+h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+ion-label {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #333;
+}
+ion-input {
+  --background: #fff;
+  --border-radius: 8px;
+  --padding-start: 10px;
+  border: 1px solid #ccc;
+}

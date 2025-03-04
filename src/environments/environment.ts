@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   baseUrl: 'https://fakestoreapi.com/',
   products: 'products/',
-  categories: 'categories/',
+  categories: 'products/categories/',
+  category: 'products/category/',
 };
 
 /*

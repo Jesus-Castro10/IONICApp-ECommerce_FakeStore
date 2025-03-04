@@ -29,4 +29,10 @@ export class HeaderComponent implements OnInit {
   goToCart() {
     this.router.navigate(["/cart"]);
   }
+
+  back() {
+    this.router.navigate([this.backRoute]).then(() => {
+      window.location.reload();
+    });
+  }
 }
