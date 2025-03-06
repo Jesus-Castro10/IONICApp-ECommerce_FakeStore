@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ProductCart } from '../../interfaces/product-cart';
 import { CartService } from '../../services/cart.service';
 import { ToastService } from '../../services/toast.service';
 

@@ -1,7 +1,40 @@
 <app-header [title]="'Payment Resume'"></app-header>
 
 <ion-content class="ion-padding no-scroll">
-  <app-personal-information [payment]="profileForm" [total]="total"></app-personal-information>
+  <h2>Personal information</h2>
+  <ion-grid *ngIf="payment">
+    <ion-row>
+      <ion-col size="6">
+        <ion-label>Name</ion-label>
+        <p>{{ payment.name }}</p>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label>Last name</ion-label>
+        <p>{{ payment.lastname }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-label>Country</ion-label>
+        <p>{{ payment.country }}</p>
+      </ion-col>
+      <ion-col size="6">
+        <ion-label>City</ion-label>
+        <p>{{ payment.city }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Address</ion-label>
+        <p>{{ payment.address }}</p>
+      </ion-col>
+    </ion-row>
+    <h2>Payment information</h2>
+    <p>**** **** **** {{payment.bankAccount.slice(-4)}}</p>
+
+    <h3>Total</h3>
+    <p><strong>{{total | currency}}</strong></p>
+  </ion-grid>
 </ion-content>
 
 <ion-footer>

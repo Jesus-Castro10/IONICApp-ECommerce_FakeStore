@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { PaymentService } from 'src/app/shared/services/payment.service';
 import { ToastService } from 'src/app/shared/services/toast.service';
@@ -56,17 +57,30 @@ export class CkeckoutPage implements OnInit {
     private cart: CartService,
     private router: Router,
     private toast: ToastService,
-    private paymetService: PaymentService
+    private paymetService: PaymentService,
+    private loadingCtrl: LoadingController
   ) { }
 
   ngOnInit() {
     this.total = this.cart.getTotalPrice();
   }
 
-  goToInvoice() {
+  async goToInvoice() {
     if (this.profileForm.valid) {
+      const loading = await this.loadingCtrl.create({
+        message: 'Procesando pago...',
+        duration: 3000,
+        spinner: 'crescent'
+      });
+
+      await loading.present();
+
       this.paymetService.createPayment(this.profileForm.value);
-      this.router.navigate(["/invoice"]);
+
+      setTimeout(() => {
+        loading.dismiss();
+        this.router.navigate(['/invoice']);
+      }, 3000);
     } else {
       this.toast.presentToast('Some of the fields are invalid', false);
     }

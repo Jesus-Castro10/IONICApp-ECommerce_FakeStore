@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PaymetInformation } from '../interfaces/paymet-information';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class PaymentService {
     localStorage.setItem('payment', JSON.stringify(payment));
   }
 
-  getPayment(): any {
-    return localStorage.getItem('payment')
+  getPayment(): PaymetInformation | null {
+    const json = localStorage.getItem('payment');
+    return json ? JSON.parse(json) : null;
   }
 
   destroyPayment(): void {

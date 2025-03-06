@@ -2,7 +2,6 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <!-- <ion-row class="ion-justify-content-center"> -->
       <ion-col size="auto">
         <ion-button fill="outline" size="small" (click)="sortProducts('asc')">Asc<ion-icon
             name="arrow-up-outline"></ion-icon></ion-button>
@@ -10,6 +9,8 @@
             name="arrow-down-outline"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
+  </ion-grid>
+  <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col size="auto">
         <ion-select placeholder="Select an Item" [(ngModel)]="selectedCategory" (ionChange)="filterProducts()">
@@ -20,9 +21,13 @@
         </ion-select>
       </ion-col>
     </ion-row>
+  </ion-grid>
+  <ion-grid>
     <ion-row>
       @for (product of products; track product;) {
-      <app-card-product [product]="product"></app-card-product>
+      <ion-col size="6" size-md="4" size-lg="2">
+        <app-card-product [product]="product"></app-card-product>
+      </ion-col>
       }
     </ion-row>
   </ion-grid>

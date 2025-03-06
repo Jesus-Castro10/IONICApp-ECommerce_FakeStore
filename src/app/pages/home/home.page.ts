@@ -12,7 +12,6 @@ export class HomePage implements OnInit {
   products: Product[] = [];
   categories: string[] = [];
 
-  filteredProducts = [...this.products];
   selectedCategory = 'all';
 
   constructor(private service: ProductService) { }
@@ -45,7 +44,6 @@ export class HomePage implements OnInit {
     this.service.getProducts().subscribe({
       next: (rest: any) => {
         this.products.push(...rest)
-        console.log(this.products);
       },
       error: (error: any) => { }
     })
@@ -55,7 +53,6 @@ export class HomePage implements OnInit {
     this.service.getCategories().subscribe({
       next: (rest: any) => {
         this.categories.push(...rest)
-        console.log(this.categories);
       },
       error: (error: any) => { }
     })

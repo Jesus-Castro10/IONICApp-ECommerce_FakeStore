@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { Product } from 'src/app/shared/interfaces/product';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductService } from 'src/app/shared/services/product-service.service';
@@ -34,7 +33,6 @@ export class DetailProductPage implements OnInit {
     this.service.getProduct(id).subscribe({
       next: (rest: any) => {
         this.product = rest;
-        console.log(rest);
       },
       error: (error: any) => { }
     })

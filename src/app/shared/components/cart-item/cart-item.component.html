@@ -12,6 +12,6 @@
       <ion-button fill="clear" color="danger" class="remove-button" (click)="deleteToCart(item.id)">🗑</ion-button>
     </div>
   </ion-label>
-  <h2>${{ item.price }}</h2>
+  <h2>{{ item.price | currency }}</h2>
 </ion-item>
 }

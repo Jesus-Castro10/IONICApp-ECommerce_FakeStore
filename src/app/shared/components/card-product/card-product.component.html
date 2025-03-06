@@ -1,14 +1,12 @@
-<ion-col>
-  <ion-card class="product-card" [button]="true" (click)="navigate()">
-    <img [src]="product.image" class="product-image" />
-    <ion-card-content class="product-content">
-      <h2 class="product-title">{{ product.title }}</h2>
-      <p class="product-category">{{ product.category }}</p>
-      <p class="product-rating">{{ product.rating.rate }} <ion-icon name="star"></ion-icon> ({{ product.rating.count }}
-        reviews)</p>
-      <h3 class="product-price">
-        ${{ product.price }}
-      </h3>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
+<ion-card class="product-card" [button]="true" (click)="navigate()">
+  <img [src]="product.image" class="product-image" />
+  <ion-card-content class="product-content">
+    <h2 class="product-title">{{ product.title }}</h2>
+    <p class="product-category">{{ product.category }}</p>
+    <p class="product-rating">{{ product.rating.rate }} <ion-icon name="star"></ion-icon> ({{ product.rating.count }}
+      reviews)</p>
+    <h3 class="product-price">
+      {{ product.price | currency }}
+    </h3>
+  </ion-card-content>
+</ion-card>

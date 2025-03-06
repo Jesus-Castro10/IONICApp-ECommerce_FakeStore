@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaymetInformation } from 'src/app/shared/interfaces/paymet-information';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { PaymentService } from 'src/app/shared/services/payment.service';
 
@@ -12,7 +13,7 @@ import { PaymentService } from 'src/app/shared/services/payment.service';
 export class InvoicePage implements OnInit {
 
   isValidForm!: boolean;
-  profileForm: any;
+  payment: PaymetInformation | null = null;;
   total = 0;
   bankAccount = "1234567890";
 
@@ -23,9 +24,8 @@ export class InvoicePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.profileForm = this.paymentService.getPayment();
+    this.payment = this.paymentService.getPayment();
     this.total = this.cart.getTotalPrice();
-    console.log(this.profileForm);
   }
 
   goToHome() {

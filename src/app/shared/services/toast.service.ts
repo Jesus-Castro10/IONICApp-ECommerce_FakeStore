@@ -12,7 +12,7 @@ export class ToastService {
     const toast = await this.toastController.create({
       message: message,
       duration: 1500,
-      color: isSuccess ? 'success' : 'danger', // Verde si es éxito, rojo si es error
+      color: isSuccess ? 'success' : 'danger',
       position: 'top',
     });
 

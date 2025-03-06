@@ -18,7 +18,7 @@
         <p class="product-category">{{ product.category }}</p>
       </ion-col>
       <ion-col class="product-price">
-        <h2>${{ product.price }}</h2>
+        <h2>{{ product.price | currency }}</h2>
       </ion-col>
     </ion-row>
     <ion-row>

@@ -12,7 +12,7 @@
   <ion-toolbar>
     <div class="total-container">
       <span class="total-label">Total:</span>
-      <span class="total-amount">${{total.toFixed(2)}}</span>
+      <span class="total-amount">{{total.toFixed(2) | currency}}</span>
     </div>
   </ion-toolbar>
   @if(total >= 1){
