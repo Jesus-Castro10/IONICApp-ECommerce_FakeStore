@@ -2,26 +2,56 @@
 
 <ion-content class="ion-padding no-scroll">
 
-  <app-personal-information></app-personal-information>
-
-  <h2>Payment information</h2>
-  <ion-label>Enter Your Bank Account Number</ion-label>
-  <ion-input value="0123456789"></ion-input>
+  <h2>Personal information</h2>
   <ion-grid>
-    <ion-row>
-      <ion-col size="4">
-        <ion-label>CVC</ion-label>
-        <ion-input value="123"></ion-input>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>Due Date</ion-label>
-        <ion-input value="12/34"></ion-input>
-      </ion-col>
-      <ion-col size="4">
-        <ion-label>Total</ion-label>
-        <p><strong>$ {{total}}</strong></p>
-      </ion-col>
-    </ion-row>
+    <form [formGroup]="profileForm">
+      <ion-row>
+        <ion-col size="6">
+          <ion-label>Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>Last name</ion-label>
+          <ion-input formControlName="lastname"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-label>Country</ion-label>
+          <ion-input formControlName="country"></ion-input>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>City</ion-label>
+          <ion-input formControlName="city"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Address</ion-label>
+          <ion-input formControlName="address"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <h2>Payment information</h2>
+      <ion-label>Enter Your Bank Account Number</ion-label>
+      <ion-input formControlName="bankAccount"></ion-input>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-label>CVC</ion-label>
+            <ion-input formControlName="cvc"></ion-input>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>Due Date</ion-label>
+            <ion-input formControlName="dueDate"></ion-input>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>Total</ion-label>
+            <p><strong>$ {{total}}</strong></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
   </ion-grid>
 </ion-content>
 

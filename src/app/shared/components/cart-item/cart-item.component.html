@@ -1,0 +1,17 @@
+@if (item != null || item != undefined) {
+<ion-item>
+  <ion-thumbnail slot="start">
+    <img [src]="item.image" />
+  </ion-thumbnail>
+  <ion-label>
+    <h2>{{ item.title }}</h2>
+    <div class="quantity-container">
+      <ion-button fill="clear" (click)="decreaseQuantity(item.id)" class="quantity-button">-</ion-button>
+      <span class="quantity-text">{{ item.quantity }}</span>
+      <ion-button fill="clear" (click)="increaseQuantity(item.id)" class="quantity-button">+</ion-button>
+      <ion-button fill="clear" color="danger" class="remove-button" (click)="deleteToCart(item.id)">🗑</ion-button>
+    </div>
+  </ion-label>
+  <h2>${{ item.price }}</h2>
+</ion-item>
+}

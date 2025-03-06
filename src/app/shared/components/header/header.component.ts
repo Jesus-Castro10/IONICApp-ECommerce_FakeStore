@@ -13,8 +13,7 @@ export class HeaderComponent implements OnInit {
   @Input() title: string = "Mi ECommerce";
   @Input() backRoute!: string;
   @Input() showCart: boolean = false;
-
-  total: string = '0';
+  @Input() total: string = '0';
 
   constructor(private router: Router, private service: CartService) { }
 
@@ -30,9 +29,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/cart"]);
   }
 
-  back() {
-    this.router.navigate([this.backRoute]).then(() => {
-      window.location.reload();
-    });
+  ngOnDestroy() {
+    window.location.reload();
   }
 }

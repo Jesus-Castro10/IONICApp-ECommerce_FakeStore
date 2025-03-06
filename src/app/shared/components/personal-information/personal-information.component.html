@@ -3,27 +3,32 @@
   <ion-row>
     <ion-col size="6">
       <ion-label>Name</ion-label>
-      <ion-input value="Jane"></ion-input>
+      <ion-text>{{ payment.name }}</ion-text>
     </ion-col>
     <ion-col size="6">
       <ion-label>Last name</ion-label>
-      <ion-input value="Doe"></ion-input>
+      <ion-text>{{ payment.lastname }}</ion-text>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col size="6">
       <ion-label>Country</ion-label>
-      <ion-input value="Colombia"></ion-input>
+      <ion-text>{{ payment.country }}</ion-text>
     </ion-col>
     <ion-col size="6">
       <ion-label>City</ion-label>
-      <ion-input placeholder="City"></ion-input>
+      <ion-text>{{ payment.city }}</ion-text>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ion-label>Address</ion-label>
-      <ion-input value="Los caracoles cll 44 # 26-124"></ion-input>
+      <ion-text>{{ payment.address }}</ion-text>
     </ion-col>
   </ion-row>
 </ion-grid>
+<h2>Payment information</h2>
+<p>{{payment.bankAccount}}</p>
+
+<h3>Total</h3>
+<p><strong>$ {{total}}</strong></p>

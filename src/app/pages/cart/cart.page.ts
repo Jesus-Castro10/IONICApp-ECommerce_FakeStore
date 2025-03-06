@@ -13,32 +13,22 @@ export class CartPage implements OnInit {
 
   cartItems: ProductCart[] = [];
   total: number = 0;
-  constructor(private cartSevice: CartService, private router: Router) { }
+
+  constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
-    this.cartItems = this.cartSevice.getCartItems();
-    this.getTotalPrice();
-    console.log(this.cartItems);
+    this.cartItems = this.cartService.getCartItems();
+    this.total = this.cartService.getTotalPrice();
   }
 
-  getTotalPrice() {
-    this.total = this.cartSevice.getTotalPrice();
+  getTotalPrice(total: number) {
+    this.total = total;
   }
 
-  increaseQuantity(id: any) {
-    this.cartItems = this.cartSevice.increaseQuantity(id);
-    this.getTotalPrice();
+  getCartItems(cartItems: any) {
+    this.cartItems = cartItems;
   }
 
-  decreaseQuantity(id: any) {
-    this.cartItems = this.cartSevice.decreaseQuantity(id);
-    this.getTotalPrice();
-  }
-
-  deleteToCart(id: any) {
-    this.cartItems = this.cartSevice.deleteToCart(id);
-    this.getTotalPrice();
-  }
   goCheckout() {
     this.router.navigate(["/checkout"]);
   }

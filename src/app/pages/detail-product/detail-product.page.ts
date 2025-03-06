@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Product } from 'src/app/shared/interfaces/product';
 import { CartService } from 'src/app/shared/services/cart.service';
 import { ProductService } from 'src/app/shared/services/product-service.service';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -14,8 +16,14 @@ export class DetailProductPage implements OnInit {
 
   id: string | null = '';
   product !: Product;
+  amount: string = '0';
 
-  constructor(private service: ProductService, private route: ActivatedRoute, private cartService: CartService) { }
+  constructor(
+    private service: ProductService,
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private toastService: ToastService
+  ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -34,6 +42,8 @@ export class DetailProductPage implements OnInit {
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
-    window.location.reload();
+    this.amount = this.cartService.getQuantity();
+    this.toastService.presentToast('Product added to cart', true);
   }
+
 }

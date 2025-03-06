@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PaymetInformation } from '../../interfaces/paymet-information';
 
 @Component({
   selector: 'app-personal-information',
@@ -8,10 +10,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PersonalInformationComponent implements OnInit {
 
-  @Input() isEdit!: true;
-
+  @Input() payment!: PaymetInformation;
+  @Input() total = 0;
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log("payment" + this.payment);
+  }
 
 }

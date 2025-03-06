@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-toast{
+  --background: #f8d7da;  /* Color de fondo similar a las alertas de Bootstrap (rojo claro) */
+  --color: #721c24;  /* Color del texto (rojo oscuro) */
+  --border-radius: 0.25rem;  /* Bordes redondeados */
+  --padding-start: 1rem;  /* Espaciado a la izquierda */
+  --padding-end: 1rem;  /* Espaciado a la derecha */
+  --padding-top: 0.75rem;  /* Espaciado superior */
+  --padding-bottom: 0.75rem;  /* Espaciado inferior */
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
